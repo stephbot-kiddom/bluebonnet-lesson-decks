@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+      :root {
+        --ink: #16202b;
+        --muted: #52606d;
+        --navy: #0d2b4e;
+        --blue-700: #1c4f82;
+        --blue-500: #2f74b5;
+        --blue-100: #e3edf8;
+        --blue-50: #f5f9fd;
+        --white: #ffffff;
+        --amber: #f2a93c;
+        --amber-deep: #c97f10;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .pad {
+        position: absolute;
+        inset: 0;
+        padding: 110px 160px;
+        box-sizing: border-box;
+      }
+
+      .label-sm {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 32px;
+        font-weight: 700;
+        opacity: 0.85;
+      }
+
+      .badge-pill {
+        display: inline-block;
+        background: var(--blue-700);
+        color: var(--white);
+        text-transform: uppercase;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 12px 32px;
+        border-radius: 999px;
+      }
+
+      .summary-tag {
+        display: inline-block;
+        color: var(--blue-700);
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+
+      .headline {
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        max-width: 1500px;
+      }
+
+      .headline-accent {
+        color: var(--blue-500);
+      }
+
+      .body-text {
+        font-size: 40px;
+        line-height: 1.5;
+        color: var(--muted);
+        max-width: 1400px;
+      }
+
+      .title-stack .kicker {
+        font-size: 36px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #8fb8e6;
+        margin-bottom: 24px;
+      }
+      .title-stack .big {
+        font-size: 88px;
+        font-weight: 700;
+        line-height: 1.15;
+        max-width: 1500px;
+      }
+      .title-stack .sub {
+        margin-top: 28px;
+        font-size: 48px;
+        font-weight: 500;
+        color: #c7d6e8;
+      }
+      .title-stack .footer {
+        position: absolute;
+        bottom: 80px;
+        left: 160px;
+        font-size: 30px;
+        letter-spacing: 0.06em;
+        color: #9fb4cb;
+      }
+
+      .section-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding: 0 160px;
+      }
+      .section-wrap .label-sm {
+        margin-bottom: 28px;
+      }
+      .section-wrap .big {
+        font-size: 92px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .definition-list {
+        margin-top: 56px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 64px;
+      }
+      .definition-list .term {
+        font-size: 44px;
+        font-weight: 700;
+        color: var(--blue-700);
+        margin-bottom: 10px;
+      }
+      .definition-list .def {
+        font-size: 38px;
+        color: var(--ink);
+        line-height: 1.4;
+      }
+
+      table.data-table {
+        margin-top: 56px;
+        border-collapse: collapse;
+        font-size: 40px;
+        width: 100%;
+        max-width: 1500px;
+      }
+      table.data-table th {
+        background: var(--blue-700);
+        color: var(--white);
+        text-align: left;
+        padding: 20px 28px;
+        font-weight: 700;
+      }
+      table.data-table td {
+        padding: 20px 28px;
+        border-bottom: 2px solid var(--blue-100);
+        color: var(--ink);
+      }
+      table.data-table tr:nth-child(even) td {
+        background: var(--blue-50);
+      }
+
+      .formula-row {
+        display: flex;
+        gap: 90px;
+        margin-top: 50px;
+        align-items: baseline;
+      }
+      .formula {
+        font-size: 90px;
+        font-weight: 700;
+        color: var(--blue-700);
+      }
+      .worked-row {
+        display: flex;
+        gap: 90px;
+        margin-top: 60px;
+      }
+      .worked {
+        font-size: 42px;
+        color: var(--ink);
+        background: var(--blue-50);
+        padding: 20px 36px;
+        border-radius: 12px;
+        border: 2px solid var(--blue-100);
+      }
+
+      .twin-circles {
+        display: flex;
+        gap: 140px;
+        margin-top: 60px;
+        align-items: flex-end;
+      }
+      .twin-circle-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .twin-circle-item .circ {
+        border-radius: 50%;
+        border: 8px solid var(--blue-500);
+        position: relative;
+      }
+      .twin-circle-item .circ .center-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--blue-700);
+        transform: translate(-50%, -50%);
+      }
+      .twin-circle-item .cap {
+        margin-top: 24px;
+        font-size: 34px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .learning-targets ul {
+        margin-top: 56px;
+        list-style: none;
+      }
+      .learning-targets li {
+        font-size: 44px;
+        line-height: 1.5;
+        color: var(--ink);
+        margin-bottom: 30px;
+        padding-left: 56px;
+        position: relative;
+      }
+      .learning-targets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 16px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--blue-500);
+      }
+
+      .glossary-term-big {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .glossary-term-big span {
+        font-size: 220px;
+        font-weight: 700;
+        color: var(--blue-700);
+        letter-spacing: -0.01em;
+      }
+
+      .attribution-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 220px;
+      }
+      .attribution-wrap p {
+        font-size: 36px;
+        line-height: 1.6;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .closing-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .closing-wrap span {
+        font-size: 56px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #c7d6e8;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        background: var(--blue-100);
+        color: var(--ink);
+      }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="synth-getting-started"
+        data-width="1920"
+        data-height="1080"
+        data-duration="8"
+      >
+        <section
+          class="clip pad" id="synth-getting-started-clip"
+          data-start="0"
+          data-duration="8"
+          data-track-index="1"
+          style="display: flex; flex-direction: column; justify-content: center"
+        >
+          <div class="summary-tag">Summary</div>
+          <h1 class="headline" style="margin-top: 32px; max-width: 1600px">
+            The distance from the center of a circle to any point on the circle is always the same.
+          </h1>
+        </section>
+      </div>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo(
+          document.querySelector("#root .clip").children,
+          { y: 24 },
+          { y: 0, duration: 0.6, stagger: 0.12, ease: "power2.out" },
+          0,
+        );
+        window.__timelines["synth-getting-started"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
