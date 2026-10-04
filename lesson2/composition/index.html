@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #0a0a0a;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      }
+      #deck-root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/hyperframes-slideshow+json">
+      {
+          "slides": [
+            {
+              "sceneId": "title",
+              "notes": "Welcome slide. Grade 7, Module 1, Topic 1, Lesson 2."
+            },
+            {
+              "sceneId": "today",
+              "notes": "State today's exploration goal in one sentence."
+            },
+            {
+              "sceneId": "sh-getting-started",
+              "notes": "Getting Started, 10-15 min: What Changed? What Stayed the Same?"
+            },
+            {
+              "sceneId": "getting-started-q1",
+              "notes": "Student-facing Q1: how to rearrange the parallelogram into the rectangle."
+            },
+            {
+              "sceneId": "getting-started-q2",
+              "notes": "Student-facing Q2: what is the area of each figure."
+            },
+            {
+              "sceneId": "synth-getting-started",
+              "notes": "Close: derive unknown area formulas by comparison to known ones."
+            },
+            {
+              "sceneId": "sh-2-1",
+              "notes": "Activity 2.1, 25-30 min: Deriving the Area Formula."
+            },
+            {
+              "sceneId": "activity-2-1-q1-stem",
+              "notes": "Q1 stem: decompose the circle into wedges, set up the parallelogram task."
+            },
+            {
+              "sceneId": "activity-2-1-q1-parts",
+              "notes": "Q1 parts a-b: cut into fourths, then eighths/sixteenths, to form a parallelogram."
+            },
+            {
+              "sceneId": "activity-2-1-q2-stem",
+              "notes": "Q2 stem: analyze the parallelogram you made each time."
+            },
+            {
+              "sceneId": "activity-2-1-q2a",
+              "notes": "Q2 a-c: analyze the parallelogram as sections increase."
+            },
+            {
+              "sceneId": "activity-2-1-q2b",
+              "notes": "Q2 d-f: derive the area formula for the circle."
+            },
+            {
+              "sceneId": "activity-2-1-q3-stem",
+              "notes": "Q3 stem: use different representations for pi to calculate circle area."
+            },
+            {
+              "sceneId": "activity-2-1-q3a",
+              "notes": "Q3a: calculate area using different pi representations (blank table)."
+            },
+            {
+              "sceneId": "activity-2-1-q3b",
+              "notes": "Q3b: compare area calculations across pi representations."
+            },
+            {
+              "sceneId": "activity-2-1-q4-stem",
+              "notes": "Q4 stem: ratio of radius lengths of two circles is 1 to 2."
+            },
+            {
+              "sceneId": "activity-2-1-q4-parts",
+              "notes": "Q4 parts a-b: ratio of areas, and effect of doubling the radius."
+            },
+            {
+              "sceneId": "synth-2-1",
+              "notes": "Close: A = pi r^2."
+            },
+            {
+              "sceneId": "sh-2-2",
+              "notes": "Activity 2.2, 10-15 min: Circumference or Area."
+            },
+            {
+              "sceneId": "activity-2-2-q1-stem",
+              "notes": "Q1 stem: city park with circular garden and path, diameter 60 feet."
+            },
+            {
+              "sceneId": "activity-2-2-q1-parts",
+              "notes": "Q1 parts a-b: Sebastian's walk (circumference) vs Kayla's plant food (area)."
+            },
+            {
+              "sceneId": "activity-2-2-q2",
+              "notes": "Q2: Adriana's pizza sauce area."
+            },
+            {
+              "sceneId": "activity-2-2-q3",
+              "notes": "Q3: mural rope (circumference)."
+            },
+            {
+              "sceneId": "synth-2-2",
+              "notes": "Close: circumference and area formulas solve real-world problems."
+            },
+            {
+              "sceneId": "sh-2-3",
+              "notes": "Activity 2.3, 15-20 min: Unit Rates and Circle Area."
+            },
+            {
+              "sceneId": "activity-2-3-table",
+              "notes": "Given pizza size/slices/cost table, all three rows."
+            },
+            {
+              "sceneId": "activity-2-3-stimulus",
+              "notes": "Given: Angelina's and Mei's unit rate calculations for the Ginorme pizza."
+            },
+            {
+              "sceneId": "activity-2-3-q1-stem",
+              "notes": "Q1 stem: consider Angelina's and Mei's work."
+            },
+            {
+              "sceneId": "activity-2-3-q1-parts",
+              "notes": "Q1 parts a-b: why the unit rates differ, how to judge the better buy."
+            },
+            {
+              "sceneId": "activity-2-3-q2",
+              "notes": "Q2: which of the seven pizza sizes is the best buy."
+            },
+            {
+              "sceneId": "synth-2-3",
+              "notes": "Close: unit rates determine the best buy."
+            },
+            {
+              "sceneId": "learning-targets",
+              "notes": "Checkpoint against the lesson's I can statements."
+            },
+            {
+              "sceneId": "sh-talk",
+              "notes": "Talk the Talk, 7-10 min: Go With the Flow."
+            },
+            {
+              "sceneId": "talk-the-talk",
+              "notes": "Compare one 8cm-radius pipe to two 4cm-radius pipes."
+            },
+            {
+              "sceneId": "synth-talk",
+              "notes": "Close: A = pi r^2 solves real-world problems."
+            },
+            {
+              "sceneId": "glossary-term",
+              "notes": "Hold on the term unit rate before defining it."
+            },
+            {
+              "sceneId": "glossary-def",
+              "notes": "Define unit rate."
+            },
+            {
+              "sceneId": "attribution",
+              "notes": "Internal attribution slide, not legally authoritative."
+            },
+            {
+              "sceneId": "closing",
+              "notes": "End on the Grade 7 mark."
+            }
+          ]
+        }
+    </script>
+
+    <div
+      id="deck-root"
+      data-composition-id="deck"
+      data-width="1920"
+      data-height="1080"
+      data-duration="312"
+    >
+      <div
+        id="title-mount"
+        data-composition-id="title"
+        data-composition-src="compositions/title.html"
+        data-start="0"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="today-mount"
+        data-composition-id="today"
+        data-composition-src="compositions/today.html"
+        data-start="8"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="sh-getting-started-mount"
+        data-composition-id="sh-getting-started"
+        data-composition-src="compositions/sh-getting-started.html"
+        data-start="16"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="getting-started-q1-mount"
+        data-composition-id="getting-started-q1"
+        data-composition-src="compositions/getting-started-q1.html"
+        data-start="24"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="getting-started-q2-mount"
+        data-composition-id="getting-started-q2"
+        data-composition-src="compositions/getting-started-q2.html"
+        data-start="32"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="synth-getting-started-mount"
+        data-composition-id="synth-getting-started"
+        data-composition-src="compositions/synth-getting-started.html"
+        data-start="40"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="sh-2-1-mount"
+        data-composition-id="sh-2-1"
+        data-composition-src="compositions/sh-2-1.html"
+        data-start="48"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q1-stem-mount"
+        data-composition-id="activity-2-1-q1-stem"
+        data-composition-src="compositions/activity-2-1-q1-stem.html"
+        data-start="56"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q1-parts-mount"
+        data-composition-id="activity-2-1-q1-parts"
+        data-composition-src="compositions/activity-2-1-q1-parts.html"
+        data-start="64"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q2-stem-mount"
+        data-composition-id="activity-2-1-q2-stem"
+        data-composition-src="compositions/activity-2-1-q2-stem.html"
+        data-start="72"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q2a-mount"
+        data-composition-id="activity-2-1-q2a"
+        data-composition-src="compositions/activity-2-1-q2a.html"
+        data-start="80"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q2b-mount"
+        data-composition-id="activity-2-1-q2b"
+        data-composition-src="compositions/activity-2-1-q2b.html"
+        data-start="88"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q3-stem-mount"
+        data-composition-id="activity-2-1-q3-stem"
+        data-composition-src="compositions/activity-2-1-q3-stem.html"
+        data-start="96"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q3a-mount"
+        data-composition-id="activity-2-1-q3a"
+        data-composition-src="compositions/activity-2-1-q3a.html"
+        data-start="104"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q3b-mount"
+        data-composition-id="activity-2-1-q3b"
+        data-composition-src="compositions/activity-2-1-q3b.html"
+        data-start="112"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q4-stem-mount"
+        data-composition-id="activity-2-1-q4-stem"
+        data-composition-src="compositions/activity-2-1-q4-stem.html"
+        data-start="120"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-1-q4-parts-mount"
+        data-composition-id="activity-2-1-q4-parts"
+        data-composition-src="compositions/activity-2-1-q4-parts.html"
+        data-start="128"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="synth-2-1-mount"
+        data-composition-id="synth-2-1"
+        data-composition-src="compositions/synth-2-1.html"
+        data-start="136"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="sh-2-2-mount"
+        data-composition-id="sh-2-2"
+        data-composition-src="compositions/sh-2-2.html"
+        data-start="144"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-2-q1-stem-mount"
+        data-composition-id="activity-2-2-q1-stem"
+        data-composition-src="compositions/activity-2-2-q1-stem.html"
+        data-start="152"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-2-q1-parts-mount"
+        data-composition-id="activity-2-2-q1-parts"
+        data-composition-src="compositions/activity-2-2-q1-parts.html"
+        data-start="160"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-2-q2-mount"
+        data-composition-id="activity-2-2-q2"
+        data-composition-src="compositions/activity-2-2-q2.html"
+        data-start="168"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-2-q3-mount"
+        data-composition-id="activity-2-2-q3"
+        data-composition-src="compositions/activity-2-2-q3.html"
+        data-start="176"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="synth-2-2-mount"
+        data-composition-id="synth-2-2"
+        data-composition-src="compositions/synth-2-2.html"
+        data-start="184"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="sh-2-3-mount"
+        data-composition-id="sh-2-3"
+        data-composition-src="compositions/sh-2-3.html"
+        data-start="192"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-3-table-mount"
+        data-composition-id="activity-2-3-table"
+        data-composition-src="compositions/activity-2-3-table.html"
+        data-start="200"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-3-stimulus-mount"
+        data-composition-id="activity-2-3-stimulus"
+        data-composition-src="compositions/activity-2-3-stimulus.html"
+        data-start="208"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-3-q1-stem-mount"
+        data-composition-id="activity-2-3-q1-stem"
+        data-composition-src="compositions/activity-2-3-q1-stem.html"
+        data-start="216"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-3-q1-parts-mount"
+        data-composition-id="activity-2-3-q1-parts"
+        data-composition-src="compositions/activity-2-3-q1-parts.html"
+        data-start="224"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="activity-2-3-q2-mount"
+        data-composition-id="activity-2-3-q2"
+        data-composition-src="compositions/activity-2-3-q2.html"
+        data-start="232"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="synth-2-3-mount"
+        data-composition-id="synth-2-3"
+        data-composition-src="compositions/synth-2-3.html"
+        data-start="240"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="learning-targets-mount"
+        data-composition-id="learning-targets"
+        data-composition-src="compositions/learning-targets.html"
+        data-start="248"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="sh-talk-mount"
+        data-composition-id="sh-talk"
+        data-composition-src="compositions/sh-talk.html"
+        data-start="256"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="talk-the-talk-mount"
+        data-composition-id="talk-the-talk"
+        data-composition-src="compositions/talk-the-talk.html"
+        data-start="264"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="synth-talk-mount"
+        data-composition-id="synth-talk"
+        data-composition-src="compositions/synth-talk.html"
+        data-start="272"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="glossary-term-mount"
+        data-composition-id="glossary-term"
+        data-composition-src="compositions/glossary-term.html"
+        data-start="280"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="glossary-def-mount"
+        data-composition-id="glossary-def"
+        data-composition-src="compositions/glossary-def.html"
+        data-start="288"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="attribution-mount"
+        data-composition-id="attribution"
+        data-composition-src="compositions/attribution.html"
+        data-start="296"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <div
+        id="closing-mount"
+        data-composition-id="closing"
+        data-composition-src="compositions/closing.html"
+        data-start="304"
+        data-duration="8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["deck"] = tl;
+    </script>
+  </body>
+</html>

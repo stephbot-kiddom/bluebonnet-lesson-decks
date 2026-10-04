@@ -1,0 +1,761 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+      :root {
+        --ink: #16202b;
+        --muted: #52606d;
+        --navy: #0d2b4e;
+        --blue-700: #1c4f82;
+        --blue-500: #2f74b5;
+        --blue-100: #e3edf8;
+        --blue-50: #f5f9fd;
+        --white: #ffffff;
+        --amber: #f2a93c;
+        --amber-deep: #c97f10;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .pad {
+        position: absolute;
+        inset: 0;
+        padding: 100px 150px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .label-sm {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 32px;
+        font-weight: 700;
+        opacity: 0.85;
+      }
+
+      .badge-pill {
+        display: inline-block;
+        position: absolute;
+        top: 100px;
+        left: 150px;
+        background: var(--blue-700);
+        color: var(--white);
+        text-transform: uppercase;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 12px 32px;
+        border-radius: 999px;
+      }
+
+      .summary-tag {
+        display: inline-block;
+        align-self: flex-start;
+        color: var(--blue-700);
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+
+      .headline {
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        max-width: 1500px;
+      }
+
+      .body-text {
+        font-size: 40px;
+        line-height: 1.5;
+        color: var(--muted);
+        max-width: 1400px;
+      }
+
+      .title-stack .kicker {
+        font-size: 36px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #8fb8e6;
+        margin-bottom: 24px;
+      }
+      .title-stack .big {
+        font-size: 88px;
+        font-weight: 700;
+        line-height: 1.15;
+        max-width: 1500px;
+      }
+      .title-stack .sub {
+        margin-top: 28px;
+        font-size: 48px;
+        font-weight: 500;
+        color: #c7d6e8;
+      }
+      .title-stack .footer {
+        position: absolute;
+        bottom: 80px;
+        left: 160px;
+        font-size: 30px;
+        letter-spacing: 0.06em;
+        color: #9fb4cb;
+      }
+
+      .section-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding: 0 160px;
+      }
+      .section-wrap .label-sm {
+        margin-bottom: 28px;
+      }
+      .section-wrap .big {
+        font-size: 92px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      table.data-table {
+        margin-top: 40px;
+        border-collapse: collapse;
+        font-size: 32px;
+        width: 100%;
+        max-width: 1620px;
+      }
+      table.data-table th {
+        background: var(--blue-700);
+        color: var(--white);
+        text-align: left;
+        padding: 14px 22px;
+        font-weight: 700;
+      }
+      table.data-table td {
+        padding: 14px 22px;
+        border-bottom: 2px solid var(--blue-100);
+        color: var(--ink);
+      }
+      table.data-table tr:nth-child(even) td {
+        background: var(--blue-50);
+      }
+
+      .worked-row {
+        display: flex;
+        gap: 56px;
+        margin-top: 40px;
+      }
+      .worked {
+        font-size: 34px;
+        color: var(--ink);
+        background: var(--blue-50);
+        padding: 20px 32px;
+        border-radius: 12px;
+        border: 2px solid var(--blue-100);
+      }
+
+      .learning-targets ul {
+        margin-top: 56px;
+        list-style: none;
+      }
+      .learning-targets li {
+        font-size: 44px;
+        line-height: 1.5;
+        color: var(--ink);
+        margin-bottom: 30px;
+        padding-left: 56px;
+        position: relative;
+      }
+      .learning-targets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 16px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--blue-500);
+      }
+
+      .glossary-term-big {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .glossary-term-big span {
+        font-size: 220px;
+        font-weight: 700;
+        color: var(--blue-700);
+        letter-spacing: -0.01em;
+      }
+
+      .attribution-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 220px;
+      }
+      .attribution-wrap p {
+        font-size: 36px;
+        line-height: 1.6;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .closing-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .closing-wrap span {
+        font-size: 56px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #c7d6e8;
+      }
+
+      .pz-row {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        margin-top: 36px;
+      }
+      .pz-shape-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .pz-shape-cap {
+        margin-top: 20px;
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .pz-parallelogram {
+        width: 220px;
+        height: 150px;
+        background: var(--blue-100);
+        border: 5px solid var(--blue-500);
+        clip-path: polygon(22% 0%, 100% 0%, 78% 100%, 0% 100%);
+        position: relative;
+      }
+      .pz-rectangle {
+        width: 220px;
+        height: 150px;
+        background: var(--blue-100);
+        border: 5px solid var(--blue-700);
+        position: relative;
+      }
+      .pz-dim-label {
+        position: absolute;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--blue-700);
+      }
+      .pz-dim-b {
+        bottom: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .pz-dim-h {
+        top: 50%;
+        left: -34px;
+        transform: translateY(-50%);
+      }
+      .pz-arrow {
+        font-size: 60px;
+        color: var(--blue-700);
+        font-weight: 700;
+      }
+
+      .wedge-circle {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex: 0 0 auto;
+        border: 3px solid var(--blue-100);
+      }
+      .wedge {
+        position: absolute;
+        inset: 0;
+        clip-path: polygon(50% 50%, 50% 0%, 100% 0%);
+        border-right: 2px solid var(--blue-500);
+      }
+      .wedge.dashed {
+        border-right: 2px dashed var(--blue-700);
+      }
+      .wedge-row {
+        display: flex;
+        gap: 48px;
+        margin-top: 36px;
+        align-items: center;
+      }
+      .wedge-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .wedge-cap {
+        margin-top: 18px;
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .card-row {
+        display: flex;
+        gap: 48px;
+        margin-top: 36px;
+      }
+      .info-card {
+        flex: 1;
+        background: var(--blue-50);
+        border: 2px solid var(--blue-100);
+        border-radius: 16px;
+        padding: 32px 36px;
+      }
+      .info-card .card-name {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--blue-700);
+        margin-bottom: 16px;
+      }
+      .info-card .card-prompt {
+        font-size: 28px;
+        line-height: 1.4;
+        color: var(--ink);
+      }
+      .reminder-line {
+        position: absolute;
+        bottom: 56px;
+        left: 150px;
+        right: 150px;
+        background: var(--blue-50);
+        border: 1px solid var(--blue-100);
+        border-radius: 16px;
+        padding: 20px 36px;
+      }
+      .reminder-line .reminder-label {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--blue-700);
+        margin-bottom: 8px;
+      }
+      .reminder-line .reminder-text {
+        font-size: 28px;
+        color: var(--ink);
+        line-height: 1.4;
+      }
+      .context-box {
+        margin-top: 30px;
+        background: var(--blue-50);
+        border: 1px solid var(--blue-100);
+        border-radius: 16px;
+        padding: 28px 36px;
+      }
+      .context-line {
+        font-size: 28px;
+        line-height: 1.45;
+        color: var(--muted);
+        max-width: 1620px;
+      }
+      .question-text {
+        margin-top: 32px;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--ink);
+        max-width: 1620px;
+      }
+      .question-recap {
+        margin-bottom: 20px;
+      }
+      .question-recap .recap-num {
+        display: block;
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--blue-700);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 10px;
+      }
+      .question-recap .recap-stem {
+        font-size: 28px;
+        font-style: italic;
+        line-height: 1.4;
+        color: var(--muted);
+        max-width: 1620px;
+      }
+      .parts-columns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+        gap: 0;
+        margin-top: 36px;
+        max-width: 1720px;
+      }
+      .part-col {
+        padding: 0 48px;
+        border-left: 3px solid var(--blue-700);
+      }
+      .part-col:first-child {
+        border-left: none;
+        padding-left: 0;
+      }
+      .part-col .part-letter {
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--blue-700);
+        margin-bottom: 14px;
+      }
+      .part-col .part-text {
+        font-size: 32px;
+        line-height: 1.45;
+        color: var(--ink);
+      }
+
+      .diagram-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 36px;
+      }
+      .diagram-wrap.diagram-pair {
+        gap: 64px;
+      }
+      .diagram-wrap svg {
+        display: block;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        background: var(--white);
+        color: var(--ink);
+      }
+
+      .fence-widget {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
+      .fence-widget svg {
+        width: 520px;
+        height: auto;
+        display: block;
+        overflow: visible;
+      }
+      .fw-fixed-label {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        fill: var(--muted);
+      }
+      .fw-rect {
+        fill: var(--blue-100);
+        fill-opacity: 0.7;
+        stroke: var(--blue-500);
+        stroke-width: 3.5;
+      }
+      .fw-dim-label {
+        font-size: 20px;
+        font-weight: 700;
+        fill: var(--blue-700);
+      }
+      .fw-circle {
+        fill: var(--amber);
+        fill-opacity: 0.08;
+        stroke: var(--amber);
+        stroke-width: 3;
+      }
+      .fw-circle-radius-line {
+        stroke: var(--amber-deep);
+        stroke-width: 2;
+        stroke-dasharray: 5 5;
+      }
+      .fw-circle-label {
+        font-size: 19px;
+        font-weight: 700;
+        fill: var(--amber-deep);
+      }
+      .fw-track {
+        stroke: var(--blue-100);
+        stroke-width: 8;
+        stroke-linecap: round;
+      }
+      .fw-handle {
+        fill: var(--white);
+        stroke: var(--amber);
+        stroke-width: 4;
+        cursor: grab;
+        filter: drop-shadow(0 3px 6px rgba(22, 32, 43, 0.3));
+        touch-action: none;
+      }
+      .fw-handle.is-dragging {
+        cursor: grabbing;
+      }
+      .fw-hint-ring {
+        fill: none;
+        stroke: var(--amber);
+        stroke-width: 2.5;
+        pointer-events: none;
+      }
+      .fw-hint-arrow {
+        font-size: 22px;
+        fill: var(--amber-deep);
+        pointer-events: none;
+      }
+      .fw-toggle {
+        cursor: pointer;
+      }
+      .fw-toggle-bg {
+        fill: var(--blue-50);
+        stroke: var(--blue-100);
+        stroke-width: 2;
+      }
+      .fw-toggle-dot {
+        fill: none;
+        stroke: var(--blue-500);
+        stroke-width: 2.5;
+      }
+      .fw-toggle-dot.is-on {
+        fill: var(--amber);
+        stroke: var(--amber-deep);
+      }
+      .fw-toggle-label {
+        font-size: 21px;
+        font-weight: 600;
+        fill: var(--ink);
+      }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="activity-3-1"
+        data-width="1920"
+        data-height="1080"
+        data-duration="8"
+      >
+        <section class="clip pad" id="activity-3-1-clip" data-start="0" data-duration="8" data-track-index="1">
+<span class="badge-pill">Develop</span>
+<div class="context-box"><p class="context-line">A friend gave you 120 feet of fencing. You decide to fence in a portion of the backyard for your dog. You want to maximize the amount of fenced land.</p></div>
+<p class="question-text">1. Draw a diagram, label the dimensions, and compute the maximum fenced area. Assume the fence is free-standing and you are not using any existing structure.</p>
+<div class="fence-widget">
+  <svg id="fw-svg" viewBox="0 0 640 560">
+    <text class="fw-fixed-label" x="320" y="402" text-anchor="middle">Perimeter fixed at 120 ft</text>
+
+    <rect id="fw-rect" class="fw-rect" x="0" y="0" width="0" height="0" />
+    <text id="fw-w-label" class="fw-dim-label" x="320" y="0" text-anchor="middle">w = 30 ft</text>
+    <text id="fw-h-label" class="fw-dim-label" x="0" y="216" text-anchor="end">h = 30 ft</text>
+
+    <g id="fw-circle-group" opacity="0">
+      <circle id="fw-circle" class="fw-circle" cx="320" cy="210" r="95.5" />
+      <line id="fw-circle-radius-line" class="fw-circle-radius-line" x1="320" y1="210" x2="381.4" y2="137.8" />
+      <text id="fw-circle-label" class="fw-circle-label" x="388" y="132">r &asymp; 19.1 ft</text>
+    </g>
+
+    <line class="fw-track" x1="170" y1="440" x2="470" y2="440" />
+    <circle id="fw-hint-ring" class="fw-hint-ring" cx="320" cy="440" r="26" />
+    <text id="fw-hint-arrow" class="fw-hint-arrow" x="320" y="398" text-anchor="middle">&#8595; drag</text>
+    <circle id="fw-handle" class="fw-handle" cx="320" cy="440" r="16" />
+
+    <g id="fw-toggle" class="fw-toggle">
+      <rect class="fw-toggle-bg" x="130" y="478" width="380" height="54" rx="27" />
+      <circle id="fw-toggle-dot" class="fw-toggle-dot" cx="160" cy="505" r="10" />
+      <text class="fw-toggle-label" x="184" y="512">Show same-perimeter circle</text>
+    </g>
+  </svg>
+</div>
+        </section>
+      </div>
+      <script>
+        (function () {
+          const svg = document.getElementById("fw-svg");
+          // Guard: the host re-seeks this sub-composition whenever the slide
+          // becomes visible again, which can re-run this script. Without this
+          // guard a revisit would re-attach listeners and restart the intro tween.
+          if (svg.dataset.hfInit === "true") return;
+          svg.dataset.hfInit = "true";
+
+          const CX = 320,
+            CY = 210;
+          const PX_PER_FT = 5;
+          const TRACK_X1 = 170,
+            TRACK_X2 = 470,
+            TRACK_Y = 440;
+          const MIN_W = 5,
+            MAX_W = 55;
+
+          const rect = document.getElementById("fw-rect");
+          const wLabel = document.getElementById("fw-w-label");
+          const hLabel = document.getElementById("fw-h-label");
+          const handle = document.getElementById("fw-handle");
+          const hintRing = document.getElementById("fw-hint-ring");
+          const hintArrow = document.getElementById("fw-hint-arrow");
+          const circleGroup = document.getElementById("fw-circle-group");
+          const toggle = document.getElementById("fw-toggle");
+          const toggleDot = document.getElementById("fw-toggle-dot");
+
+          function widthToHandleX(widthFt) {
+            const t = (widthFt - MIN_W) / (MAX_W - MIN_W);
+            return TRACK_X1 + t * (TRACK_X2 - TRACK_X1);
+          }
+
+          function render(widthFt) {
+            const heightFt = 60 - widthFt;
+            const w = widthFt * PX_PER_FT;
+            const h = heightFt * PX_PER_FT;
+            const x = CX - w / 2;
+            const y = CY - h / 2;
+
+            rect.setAttribute("x", x);
+            rect.setAttribute("y", y);
+            rect.setAttribute("width", w);
+            rect.setAttribute("height", h);
+
+            wLabel.setAttribute("x", CX);
+            wLabel.setAttribute("y", y + h + 30);
+            wLabel.textContent = `w = ${widthFt.toFixed(1)} ft`;
+
+            hLabel.setAttribute("x", x - 14);
+            hLabel.setAttribute("y", CY + 6);
+            hLabel.textContent = `h = ${heightFt.toFixed(1)} ft`;
+
+            const hx = widthToHandleX(widthFt);
+            handle.setAttribute("cx", hx);
+            hintRing.setAttribute("cx", hx);
+          }
+
+          function widthFromClientX(clientX) {
+            const pt = svg.createSVGPoint();
+            pt.x = clientX;
+            pt.y = 0;
+            const loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+            let t = (loc.x - TRACK_X1) / (TRACK_X2 - TRACK_X1);
+            t = Math.max(0, Math.min(1, t));
+            return MIN_W + t * (MAX_W - MIN_W);
+          }
+
+          let dragging = false;
+          let hintDismissed = false;
+          let hintTween = null;
+
+          function dismissHint() {
+            if (hintDismissed) return;
+            hintDismissed = true;
+            if (hintTween) hintTween.kill();
+            gsap.to([hintRing, hintArrow], { opacity: 0, duration: 0.3, ease: "power1.out" });
+          }
+
+          handle.addEventListener("pointerdown", (evt) => {
+            dragging = true;
+            handle.classList.add("is-dragging");
+            handle.setPointerCapture(evt.pointerId);
+            if (introTween) introTween.kill();
+            dismissHint();
+            render(widthFromClientX(evt.clientX));
+          });
+          handle.addEventListener("pointermove", (evt) => {
+            if (!dragging) return;
+            render(widthFromClientX(evt.clientX));
+          });
+          handle.addEventListener("pointerup", (evt) => {
+            dragging = false;
+            handle.classList.remove("is-dragging");
+            handle.releasePointerCapture(evt.pointerId);
+          });
+          handle.addEventListener("pointercancel", () => {
+            dragging = false;
+            handle.classList.remove("is-dragging");
+          });
+
+          let circleOn = false;
+          toggle.addEventListener("pointerdown", () => {
+            circleOn = !circleOn;
+            toggleDot.classList.toggle("is-on", circleOn);
+            gsap.to(circleGroup, {
+              opacity: circleOn ? 1 : 0,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+
+          // One-time "drag me" affordance: pulsing ring around the handle,
+          // dismissed via a GSAP opacity tween (never a CSS transition) on
+          // the first pointer interaction.
+          hintTween = gsap.to(hintRing, {
+            attr: { r: 34 },
+            opacity: 0,
+            duration: 0.9,
+            ease: "power1.out",
+            repeat: 5,
+            onRepeat: () => {
+              hintRing.setAttribute("r", 26);
+              hintRing.style.opacity = 1;
+            },
+          });
+
+          // Draws itself in shortly after the slide becomes visible: handle
+          // sweeps from one end of the track to roughly the square position.
+          let introTween = null;
+          let introStarted = false;
+          const introState = { w: MIN_W };
+          function runIntro() {
+            if (introStarted) return;
+            introStarted = true;
+            introTween = gsap.to(introState, {
+              w: 30,
+              duration: 1,
+              ease: "power3.out",
+              onUpdate: () => render(introState.w),
+            });
+          }
+
+          render(MIN_W);
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) runIntro();
+              });
+            },
+            { threshold: 0.2 },
+          );
+          io.observe(svg);
+          // Fallback in case this iframe never reports intersection (e.g. always-rendered engine).
+          setTimeout(runIntro, 1200);
+        })();
+      </script>
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo(
+          document.querySelector("#root .clip").children,
+          { y: 24 },
+          { y: 0, duration: 0.6, stagger: 0.12, ease: "power2.out" },
+          0,
+        );
+        window.__timelines["activity-3-1"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
